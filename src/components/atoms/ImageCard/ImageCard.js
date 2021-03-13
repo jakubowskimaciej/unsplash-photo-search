@@ -4,7 +4,15 @@ import styled from 'styled-components';
 const StyledImg = styled.img`
   display: block;
   margin: 0 auto;
-  padding: 0.5rem;
+  padding: 1rem;
+  width: 38rem;
+  grid-row-end: span ${(props) => props.span};
+`;
+
+const StyledLink = styled.a`
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
   width: 38rem;
   grid-row-end: span ${(props) => props.span};
 `;
@@ -24,12 +32,19 @@ const ImageCard = ({ image }) => {
   });
 
   return (
-    <StyledImg
-      ref={ref}
-      src={image.urls.regular}
-      alt={image.alt_description}
+    <StyledLink
+      href={image.urls.full}
+      target="blank"
+      rel="noopener noreferrel"
       span={spans}
-    />
+    >
+      <StyledImg
+        ref={ref}
+        src={image.urls.regular}
+        alt={image.alt_description}
+        span={spans}
+      />
+    </StyledLink>
   );
 };
 
