@@ -1,7 +1,6 @@
 import React from 'react';
-import { Wrapper } from './ImageList.styles';
-
 import ImageCard from '../../atoms/ImageCard/ImageCard';
+import { Wrapper } from './ImageList.styles';
 
 const ImageList = ({ images }) => {
   const image = images.map((image) => (

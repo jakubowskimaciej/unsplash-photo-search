@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
   grid-gap: 0 1rem;

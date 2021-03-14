@@ -1,21 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 
-const StyledImg = styled.img`
-  display: block;
-  margin: 0 auto;
-  padding: 1rem;
-  width: 38rem;
-  grid-row-end: span ${(props) => props.span};
-`;
-
-const StyledLink = styled.a`
-  display: block;
-  margin: 0 auto;
-  padding: 1rem;
-  width: 38rem;
-  grid-row-end: span ${(props) => props.span};
-`;
+import { StyledLink, StyledImage } from './ImageCard.styles';
 
 const ImageCard = ({ image }) => {
   const ref = useRef(null);
@@ -23,8 +8,8 @@ const ImageCard = ({ image }) => {
 
   const change = () => {
     const height = ref.current.clientHeight;
-    const pictureSpans = Math.ceil(height / 10);
-    setSpans(pictureSpans);
+    const pictureSpan = Math.ceil(height / 10);
+    setSpans(pictureSpan);
   };
 
   useLayoutEffect(() => {
@@ -38,11 +23,10 @@ const ImageCard = ({ image }) => {
       rel="noopener noreferrel"
       span={spans}
     >
-      <StyledImg
+      <StyledImage
         ref={ref}
         src={image.urls.regular}
         alt={image.alt_description}
-        span={spans}
       />
     </StyledLink>
   );

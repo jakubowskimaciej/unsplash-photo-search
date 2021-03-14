@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from './api/unsplash';
-
-import SearchBar from './components/molecules/SearchBar/SearchBar';
 import ImageList from './components/molecules/ImageList/ImageList';
+import FormField from './components/organisms/FormField/FormField';
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -11,13 +10,12 @@ const App = () => {
     const res = await axios.get('/search/photos', {
       params: { query: term, per_page: 20 },
     });
-    console.log(res);
     setImages(res.data.results);
   };
 
   return (
     <div>
-      <SearchBar onSubmit={handleSearchSubmit} />
+      <FormField onSubmit={handleSearchSubmit} />
       <ImageList images={images} />
     </div>
   );

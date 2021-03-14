@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import {
+  Wrapper,
+  StyledForm,
+  StyledLabel,
+  StyledInput,
+} from './FormField.styles';
 
-import { Wrapper, StyledForm } from './SearchBar.styles';
-
-const SearchBar = (props) => {
+const FormField = (props) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -17,11 +21,15 @@ const SearchBar = (props) => {
   return (
     <Wrapper>
       <StyledForm onSubmit={handleFormSubmit}>
-        <label htmlFor="inputSearch">Input Search</label>
-        <input type="text" value={inputValue} onChange={handleInputChange} />
+        <StyledLabel htmlFor="photo-search">Photo search</StyledLabel>
+        <StyledInput
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
       </StyledForm>
     </Wrapper>
   );
 };
 
-export default SearchBar;
+export default FormField;
